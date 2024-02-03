@@ -7531,7 +7531,8 @@ Successfully installed click-8.1.7 nltk-3.8.1 regex-2023.12.25 tqdm-4.66.1
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'punkt'</span><span class="p">)</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'cess_esp'</span><span class="p">)</span>  <span class="c1"># Para etiquetado POS en español</span>
+<span class="c1"># Para ejemplificar el etiquetado POS en español</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'cess_esp'</span><span class="p">)</span>  
 </pre></div>
 </div>
 </div>
@@ -7542,7 +7543,7 @@ Successfully installed click-8.1.7 nltk-3.8.1 regex-2023.12.25 tqdm-4.66.1
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">texto</span> <span class="o">=</span> <span class="s2">"Mi maestría la estudio en la Universidad Técnica Particular de Loja. Loja es una provincia del Ecuador."</span>
@@ -7556,13 +7557,14 @@ Successfully installed click-8.1.7 nltk-3.8.1 regex-2023.12.25 tqdm-4.66.1
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
 
 <span class="n">palabras</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">texto</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">'spanish'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">palabras</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">palabras</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7575,7 +7577,25 @@ Successfully installed click-8.1.7 nltk-3.8.1 regex-2023.12.25 tqdm-4.66.1
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>['Mi', 'maestría', 'la', 'estudio', 'en', 'la', 'Universidad', 'Técnica', 'Particular', 'de', 'Loja', '.', 'Loja', 'es', 'una', 'provincia', 'del', 'Ecuador']
+<pre>Mi
+maestría
+la
+estudio
+en
+la
+Universidad
+Técnica
+Particular
+de
+Loja
+.
+Loja
+es
+una
+provincia
+del
+Ecuador
+.
 </pre>
 </div>
 </div>
@@ -7611,12 +7631,12 @@ Successfully installed click-8.1.7 nltk-3.8.1 regex-2023.12.25 tqdm-4.66.1
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0d3844c3-7c75-481e-9ada-0a3d8beee6e2">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0d3844c3-7c75-481e-9ada-0a3d8beee6e2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">cess_esp</span>
@@ -7634,23 +7654,9 @@ Successfully installed click-8.1.7 nltk-3.8.1 regex-2023.12.25 tqdm-4.66.1
 
 <span class="n">palabras</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">texto</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">'spanish'</span><span class="p">)</span>
 
-<span class="c1"># Se etiquetamos las palabras tokenizadas</span>
+<span class="c1"># Se etiqueta las palabras tokenizadas</span>
 <span class="n">etiquetado</span> <span class="o">=</span> <span class="n">tnt_pos_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">palabras</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">etiquetado</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[('Mi', 'dp1css'), ('maestría', 'ncfs000'), ('la', 'da0fs0'), ('estudio', 'ncms000'), ('en', 'sps00'), ('la', 'da0fs0'), ('Universidad', 'np0000o'), ('Técnica', 'Unk'), ('Particular', 'Unk'), ('de', 'sps00'), ('Loja', 'Unk'), ('.', 'Fp'), ('Loja', 'Unk'), ('es', 'vsip3s0'), ('una', 'di0fs0'), ('provincia', 'ncfs000'), ('del', 'spcms'), ('Ecuador', 'np0000o')]
-</pre>
 </div>
 </div>
 </div>
@@ -7660,7 +7666,7 @@ Successfully installed click-8.1.7 nltk-3.8.1 regex-2023.12.25 tqdm-4.66.1
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">etiquetado</span><span class="p">:</span>
@@ -7695,6 +7701,7 @@ Successfully installed click-8.1.7 nltk-3.8.1 regex-2023.12.25 tqdm-4.66.1
 ('provincia', 'ncfs000')
 ('del', 'spcms')
 ('Ecuador', 'np0000o')
+('.', 'Fp')
 </pre>
 </div>
 </div>
